@@ -10,6 +10,7 @@ class setup():
     self.a=f'{W}|{G2}1{W}|{W} '
     self.b=f'{W}|{G2}2{W}|{W} '
     self.line = "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    self.fail = Panel.fit('[bold][red]PYCURL SETUP FAILED !!',border_style='bright_white')
     self.complete = Panel.fit('[bold][bright_green]PYCURL SETUP COMPLETE !!',border_style='bright_white')
     self.logo = Panel.fit("""[bold][bright_white]___  _   _ ____ _  _ ____ _    \n|__]  \_/  |    |  | |__/ |    \n|      |   |___ |__| |  \ |___ 
 \n[deep_pink2]●[/deep_pink2] CODED BY [/bright_white][red]>>[/red] [bright_white]HUSSAIN AFRIDI[/bright_white][/bold]""",border_style='bright_white')
@@ -27,9 +28,11 @@ class setup():
     else:
       print(f'\n{W}{self.line}\n{self.zx}{R}WRONG INPUT !!');sleep(3);print(f'{W}{self.line}\n{G2}TRY AGAIN !! ');self.menu()
   def install(self):
-    self.clean()
-    print(f'{G2}WAIT FOR SETUP !! ')
-    os.system('pip uninstall pycurl');os.system('mv pycurl.cpython-311.so /data/data/com.termux/files/usr/lib/python3.11/site-packages');os.system('chmod 777 /data/data/com.termux/files/usr/lib/python3.11/site-packages/pycurl.cpython-311.so');os.system('rm -rf /data/data/com.termux/files/usr/lib/python3.11/site-packages/curl');os.system('rm -rf /data/data/com.termux/files/usr/lib/python3.11/site-packages/pycurl-7.45.3.dist-info');os.system('mv pycurl-7.45.3.dist-info /data/data/com.termux/files/usr/lib/python3.11/site-packages');os.system('mv curl /data/data/com.termux/files/usr/lib/python3.11/site-packages')
-    console.print(self.complete)
-    exit()
+    try:
+      self.clean()
+      print(f'{G2}WAIT FOR SETUP !! ')
+      os.system('pip uninstall pycurl');os.system('mv pycurl.cpython-311.so /data/data/com.termux/files/usr/lib/python3.11/site-packages');os.system('chmod 777 /data/data/com.termux/files/usr/lib/python3.11/site-packages/pycurl.cpython-311.so');os.system('rm -rf /data/data/com.termux/files/usr/lib/python3.11/site-packages/curl');os.system('rm -rf /data/data/com.termux/files/usr/lib/python3.11/site-packages/pycurl-7.45.3.dist-info');os.system('mv pycurl-7.45.3.dist-info /data/data/com.termux/files/usr/lib/python3.11/site-packages');os.system('mv curl /data/data/com.termux/files/usr/lib/python3.11/site-packages');print(f'\n')
+      console.print(self.complete)
+      exit()
+    except Exception as e :console.print(e);console.print(self.fail);exit()
 setup().menu()
