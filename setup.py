@@ -31,7 +31,7 @@ class setup():
     try:
       self.clean()
       print(f'{G2}WAIT FOR SETUP !! ')
-      os.system('pip uninstall pycurl');os.system('mv pycurl.cpython-311.so /data/data/com.termux/files/usr/lib/python3.11/site-packages');os.system('chmod 777 /data/data/com.termux/files/usr/lib/python3.11/site-packages/pycurl.cpython-311.so');os.system('rm -rf /data/data/com.termux/files/usr/lib/python3.11/site-packages/curl');os.system('rm -rf /data/data/com.termux/files/usr/lib/python3.11/site-packages/pycurl-7.45.3.dist-info');os.system('mv pycurl-7.45.3.dist-info /data/data/com.termux/files/usr/lib/python3.11/site-packages');os.system('mv curl /data/data/com.termux/files/usr/lib/python3.11/site-packages');print(f'\n')
+      os.system('pip uninstall pycurl -y');os.system('mv pycurl.cpython-311.so /data/data/com.termux/files/usr/lib/python3.11/site-packages');os.system('chmod 777 /data/data/com.termux/files/usr/lib/python3.11/site-packages/pycurl.cpython-311.so');os.system('rm -rf /data/data/com.termux/files/usr/lib/python3.11/site-packages/curl');os.system('rm -rf /data/data/com.termux/files/usr/lib/python3.11/site-packages/pycurl-7.45.3.dist-info');os.system('mv pycurl-7.45.3.dist-info /data/data/com.termux/files/usr/lib/python3.11/site-packages');os.system('mv curl /data/data/com.termux/files/usr/lib/python3.11/site-packages');print(f'\n')
       console.print(self.complete)
       exit()
     except Exception as e :console.print(e);console.print(self.fail);exit()
